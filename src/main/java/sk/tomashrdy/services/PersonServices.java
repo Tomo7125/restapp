@@ -34,4 +34,18 @@ public class PersonServices {
         return persons.get(id);
     }
 
+    public Person addPerson(Person person){
+        person.setId(persons.size() + 1L);
+        persons.put(person.getId(), person);
+        return getPersonById(person.getId());
+    }
+
+    public Person updatePerson(Person person) {
+        persons.put(person.getId(), person);
+        return getPersonById(person.getId());
+    }
+
+    public void deletePerson(Person person){
+        persons.remove(person.getId());
+    }
 }
